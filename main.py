@@ -6,6 +6,7 @@ print('import fd')
 import subprocess as sb
 print('import sb')
 import tkinter.messagebox as msg
+import os
 
 base = tk.Tk()
 string = tk.StringVar()
@@ -55,6 +56,8 @@ def cv():
         info = msg.showinfo('バージョン', '最新です' + v)
     else:
         msg.showerror('バージョン', 'お使いのバージョンは最新ではありません。あなたのバージョン=>' + v)
+    os.remove('v.txt.1')
+    print('ゴミファイルの削除')
 
 base.title('デスクトップファイル生成')
 
@@ -100,4 +103,3 @@ selfile.grid(row=5, column=4)
 okbutton.grid(row=7, column=5)
 
 base.mainloop()
-
