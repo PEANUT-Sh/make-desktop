@@ -1,4 +1,5 @@
 #!/bin/bash
+USERNAME=$(whoami)
 cd
 echo "リポジトリのアップデート"
 updt="sudo apt update"
@@ -13,6 +14,6 @@ chmod +x ./main.py
 chmod +x ./main.sh
 echo "[Desktop Entry]
 Name=デスクトップファイル作成
-Exec=~/make-desktop/main.sh
+Exec=/home/${USERNAME}/make-desktop/main.sh
 Type=Application
-" > ~/Desktop/make-desktop.desktop
+" > /home/${USERNAME}/Desktop/main.desktop
