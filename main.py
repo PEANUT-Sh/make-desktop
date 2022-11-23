@@ -12,6 +12,8 @@ string = tk.StringVar()
 dir=''
 print(dir)
 
+check='wget -o gitV https://raw.githubusercontent.com/PEANUT-Sh/make-desktop/main/v.txt'
+
 #初期設定
 
 
@@ -38,11 +40,17 @@ def ok():
     base.destroy()
 def cv():
     print('バージョン確認します...')
-    v = open('./v.txt', 'r')
-    sb.run(['./wget','-o','gitV','https://raw.githubusercontent.com/PEANUT-Sh/make-desktop/main/v.txt'])
-    g = open('./gitV', 'r')
+    with open('v.txt', encoding='utf-8') as f:
+        v = f.readline()
+        print(v)
+    print('ローカル' + v)
+    sb.run(['wget', '-o', 'gitV', 'https://raw.githubusercontent.com/PEANUT-Sh/make-desktop/main/v.txt'])
+    with open('gitV', encoding='utf-8') as gi:
+        g = gi.readline()
+        print(g)
     if ( v == g ):
         print(v)
+        print('お使いのバージョンば最新です')
 
 base.title('デスクトップファイル生成')
 
