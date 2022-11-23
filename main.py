@@ -1,3 +1,4 @@
+#! /usr/bin/env /usr/bin/python
 import tkinter as tk
 print('import tk')
 import tkinter.filedialog as fd
