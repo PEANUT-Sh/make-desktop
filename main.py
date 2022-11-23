@@ -59,6 +59,9 @@ def cv():
     os.remove('v.txt.1')
     print('ゴミファイルの削除')
 
+def update():
+    sb.run(['./update.sh'])
+
 base.title('デスクトップファイル生成')
 
 selectfile = tk.PhotoImage(file='image/file.png')
@@ -69,6 +72,7 @@ menubar = tk.Menu(base)
 menuhhelp = tk.Menu(menubar)
 menubar.add_cascade(label='ヘルプ', menu=menuhhelp)
 menuhhelp.add_command(label='バージョン',command=cv)
+menuhhelp.add_command(label='アップデートを確認', command=update)
 
 title = tk.Label(base, text='make desktop')
 
