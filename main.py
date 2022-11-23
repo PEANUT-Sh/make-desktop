@@ -35,18 +35,23 @@ def ok():
     print('start make.sh')
     sb.run(['./make.sh', name, command, dirname])
     base.destroy()
+def cv():
+    f = open('v.txt', 'r')
 
 
 
 base.title('デスクトップファイル生成')
 
-selectfile = tk.PhotoImage(file='./image/file.png')
+selectfile = tk.PhotoImage(file='make-desktop/image/file.png')
 small_img = selectfile.subsample(16, 16)
 
 #部品の設定
 
-
-
+menubar = tk.Menu(base)
+menuhhelp = tk.Menu(menubar)
+menubar.add_cascade(label='ヘルプ', menu=menuhhelp)
+menuhhelp.add_command(label='バージョン',
+                      command=cv)
 
 title = tk.Label(base, text='make desktop')
 
@@ -64,6 +69,8 @@ okbutton = tk.Button(base, text='次へ', command=ok)
 
 
 #配置
+
+base.config(menu=menubar)
 
 title.grid(row=1, column=1)
 boxlabel.grid(row=2, column=2)
