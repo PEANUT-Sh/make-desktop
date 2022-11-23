@@ -24,3 +24,21 @@ StartupNotify=true
 Terminal=false
 "> /home/${USERNAME}/Desktop/main.desktop
 chmod +x /home/${USERNAME}/Desktop/main.desktop
+echo "デスクトップにショートカットを作成"
+echo "[Desktop Entry]
+Name=デスクトップファイル生成くん
+Type=Application
+Path=/home/${USERNAME}/make-desktop/
+Exec=python /home/${USERNAME}/make-desktop/main.py
+StartupNotify=true
+Terminal=false
+Categories=Utility;
+Comment=デスクトップファイルを生成します
+"> /home/${USERNAME}/.local/share/applications/main.desktop
+chmod +x /home/${USERNAME}/.local/share/applications
+echo "メニューに登録"
+echo "完了"
+yad --undecorated\
+    --text="インストールが完了しました。"\
+    --on-top\
+    --center
