@@ -5,6 +5,7 @@ import tkinter.filedialog as fd
 print('import fd')
 import subprocess as sb
 print('import sb')
+import tkinter.messagebox as msg
 
 base = tk.Tk()
 string = tk.StringVar()
@@ -42,15 +43,18 @@ def cv():
     print('バージョン確認します...')
     with open('v.txt', encoding='utf-8') as f:
         v = f.readline()
-        print(v)
-    print('ローカル' + v)
-    sb.run(['wget', '-o', 'gitV', 'https://raw.githubusercontent.com/PEANUT-Sh/make-desktop/main/v.txt'])
-    with open('gitV', encoding='utf-8') as gi:
+    #オンラインのバージョンを取得
+    sb.run(['wget', 'https://raw.githubusercontent.com/PEANUT-Sh/make-desktop/main/v.txt'])
+
+    with open('v.txt.1', encoding='utf-8') as gi:
         g = gi.readline()
-        print(g)
     if ( v == g ):
-        print(v)
+        print('最新バージョン' + g)
+        print('ローカルのバージョン' + v)
         print('お使いのバージョンば最新です')
+        info = msg.showinfo('バージョン', '最新です' + v)
+    else:
+        msg.showerror('バージョン', 'お使いのバージョンは最新ではありません。あなたのバージョン=>' + v)
 
 base.title('デスクトップファイル生成')
 
