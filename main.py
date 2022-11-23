@@ -36,22 +36,23 @@ def ok():
     sb.run(['./make.sh', name, command, dirname])
     base.destroy()
 def cv():
-    f = open('v.txt', 'r')
-
-
+    print('バージョン確認します...')
+    v = open('./v.txt', 'r')
+    sb.run(['./wget','-o','gitV','https://raw.githubusercontent.com/PEANUT-Sh/make-desktop/main/v.txt'])
+    g = open('./gitV', 'r')
+    if ( v == g ):
+        print(v)
 
 base.title('デスクトップファイル生成')
 
-selectfile = tk.PhotoImage(file='make-desktop/image/file.png')
+selectfile = tk.PhotoImage(file='image/file.png')
 small_img = selectfile.subsample(16, 16)
 
 #部品の設定
-
 menubar = tk.Menu(base)
 menuhhelp = tk.Menu(menubar)
 menubar.add_cascade(label='ヘルプ', menu=menuhhelp)
-menuhhelp.add_command(label='バージョン',
-                      command=cv)
+menuhhelp.add_command(label='バージョン',command=cv)
 
 title = tk.Label(base, text='make desktop')
 

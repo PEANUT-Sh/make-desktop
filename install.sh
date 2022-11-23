@@ -36,6 +36,7 @@ Categories=Utility;
 Comment=デスクトップファイルを生成します
 "> /home/${USERNAME}/.local/share/applications/main.desktop
 chmod +x /home/${USERNAME}/.local/share/applications
+chmod +x /home/${USERNAME}/make-desktop/checkver.sh
 echo "メニューに登録"
 echo "完了"
 yad --undecorated\

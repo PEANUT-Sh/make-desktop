@@ -1,0 +1,11 @@
+--2022-11-23 14:10:52--  https://raw.githubusercontent.com/PEANUT-Sh/make-desktop/main/v.txt
+raw.githubusercontent.com (raw.githubusercontent.com) をDNSに問いあわせています... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443 に接続しています... 接続しました。
+HTTP による接続要求を送信しました、応答を待っています... 200 OK
+長さ: 5 [text/plain]
+`v.txt.1' に保存中
+
+     0K                                                       100%  111K=0s
+
+2022-11-23 14:10:53 (111 KB/s) - `v.txt.1' へ保存完了 [5/5]
+
