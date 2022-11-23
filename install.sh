@@ -8,7 +8,7 @@ echo "必要なもののインストール"
 insta="sudo apt install python3 yad -y"
 eval $insta
 git clone https://github.com/PEANUT-Sh/make-desktop.git
-cd ./make-desktop
+cd /home/${USERNAME}/make-desktop
 chmod +x ./make.sh
 chmod +x ./main.py
 chmod +x ./main.sh
