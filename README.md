@@ -5,5 +5,5 @@ linuxでソフトを1からコンパイルしなければならないソフト�
 # HOW TO INSTALL
 
 ```bash
-wget -qO- https://github.com/PEANUT-Sh/make-desktop/raw/main/install.sh
+wget -qO- https://github.com/PEANUT-Sh/make-desktop/raw/main/install.sh | bash
 ```
