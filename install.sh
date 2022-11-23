@@ -12,8 +12,15 @@ cd /home/${USERNAME}/make-desktop
 chmod +x ./make.sh
 chmod +x ./main.py
 chmod +x ./main.sh
-echo "[Desktop Entry]
-Name=デスクトップファイル作成
-Exec=/home/${USERNAME}/make-desktop/main.sh
+echo "
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
 Type=Application
-" > /home/${USERNAME}/Desktop/main.desktop
+Name=デスクトップファイル生成くん
+Path=/home/${USERNAME}/make-desktop/
+Exec=python /home/${USERNAME}/make-desktop/main.py
+StartupNotify=true
+Terminal=false
+"> /home/${USERNAME}/Desktop/main.desktop
+chmod +x /home/${USERNAME}/Desktop/main.desktop
