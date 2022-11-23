@@ -8,10 +8,11 @@ insta="sudo apt install python3 yad -y"
 eval $insta
 git clone https://github.com/PEANUT-Sh/make-desktop.git
 cd ./make-desktop
-chmod +x make.sh
-chmod +x main.py
+chmod +x ./make.sh
+chmod +x ./main.py
+chmod +x ./main.sh
 echo "[Desktop Entry]
 Name=デスクトップファイル作成
-Exec=python ~/make-desktop/main.py
+Exec=~/make-desktop/main.sh
 Type=Application
-" > ./make-desktop.desktop
+" > ~/Desktop/make-desktop.desktop
