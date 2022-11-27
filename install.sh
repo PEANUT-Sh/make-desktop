@@ -12,6 +12,7 @@ cd /home/${USERNAME}/make-desktop
 chmod +x ./make.sh
 chmod +x ./main.py
 chmod +x ./main.sh
+chmod +x ./about.py
 echo "
 [Desktop Entry]
 Encoding=UTF-8

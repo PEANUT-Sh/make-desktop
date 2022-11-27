@@ -18,6 +18,7 @@ check='wget -o gitV https://raw.githubusercontent.com/PEANUT-Sh/make-desktop/mai
 
 #初期設定
 
+base.geometry("500x500+700+300")
 
 
 def file():
@@ -40,28 +41,9 @@ def ok():
     print('start make.sh')
     sb.run(['./make.sh', name, command, dirname])
     base.destroy()
-def cv():
-    print('バージョン確認します...')
-    with open('v.txt', encoding='utf-8') as f:
-        v = f.readline()
-    #オンラインのバージョンを取得
-    sb.run(['wget', 'https://raw.githubusercontent.com/PEANUT-Sh/make-desktop/main/v.txt'])
 
-    with open('v.txt.1', encoding='utf-8') as gi:
-        g = gi.readline()
-    if ( v == g ):
-        print('最新バージョン' + g)
-        print('ローカルのバージョン' + v)
-        print('お使いのバージョンば最新です')
-        info = msg.showinfo('バージョン', '最新です' + v)
-    else:
-        msg.showerror('バージョン', 'お使いのバージョンは最新ではありません。あなたのバージョン=>' + v)
-    os.remove('v.txt.1')
-    print('ゴミファイルの削除')
-
-def update():
-    sb.run(['./update.sh'])
-
+def about():
+    sb.run(['python', './about.py'])
 base.title('デスクトップファイル生成')
 
 selectfile = tk.PhotoImage(file='image/file.png')
@@ -70,9 +52,14 @@ small_img = selectfile.subsample(16, 16)
 #部品の設定
 menubar = tk.Menu(base)
 menuhhelp = tk.Menu(menubar)
+henyu = tk.Menu(menubar)
+
+menubar.add_cascade(label='オプション', menu=henyu)
+henyu.add_command(label='インターネットショートカット')
+henyu.add_command(label='インターネットショートカット(アプリ風)')
+
 menubar.add_cascade(label='ヘルプ', menu=menuhhelp)
-menuhhelp.add_command(label='バージョン',command=cv)
-menuhhelp.add_command(label='アップデートを確認', command=update)
+menuhhelp.add_command(label='about', command=about)
 
 title = tk.Label(base, text='make desktop')
 
@@ -93,17 +80,16 @@ okbutton = tk.Button(base, text='次へ', command=ok)
 
 base.config(menu=menubar)
 
-title.grid(row=1, column=1)
-boxlabel.grid(row=2, column=2)
-boxname.grid(row=2, column=3)
+boxlabel.place(x=100, y=100, height=30)
+boxname.place(x=200, y=100, height=30)
 
-cmdlabel.grid(row=4, column=2)
-cmdbox.grid(row=4, column=3)
+cmdlabel.place(x=100, y=200, height=30)
+cmdbox.place(x=200, y=200, height=30)
 
-filelabel.grid(row=5, column=2)
-filepath.grid(row=5, column=3)
-selfile.grid(row=5, column=4)
+filelabel.place(x=100, y=300, height=30)
+filepath.place(x=200, y=300, width=200, height=30)
+selfile.place(x=400, y=300, height=30)
 
-okbutton.grid(row=7, column=5)
+okbutton.place(x=7, y=5)
 
 base.mainloop()
