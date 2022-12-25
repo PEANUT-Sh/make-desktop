@@ -26,7 +26,8 @@ Terminal=false
 "> /home/${USERNAME}/Desktop/main.desktop
 chmod +x /home/${USERNAME}/Desktop/main.desktop
 echo "デスクトップにショートカットを作成"
-echo "[Desktop Entry]
+echo "
+[Desktop Entry]
 Name=デスクトップファイル生成くん
 Type=Application
 Path=/home/${USERNAME}/make-desktop/
@@ -37,7 +38,6 @@ Categories=Utility;
 Comment=デスクトップファイルを生成します
 "> /home/${USERNAME}/.local/share/applications/main.desktop
 chmod +x /home/${USERNAME}/.local/share/applications
-chmod +x /home/${USERNAME}/make-desktop/update.sh
 echo "メニューに登録"
 echo "完了"
 yad --undecorated\
