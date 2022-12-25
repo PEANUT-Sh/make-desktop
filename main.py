@@ -59,7 +59,7 @@ def selicon():
     print('icon => ' + iconimage)
 
 def about():
-    sb.run(['python', './about.py'])
+    sb.run(['chromium-browser', 'https://peanut-sh.github.io/about-my-project/'])
 base.title('デスクトップファイル生成')
 
 
