@@ -7,18 +7,20 @@ import subprocess as sb
 print('import sb')
 import tkinter.messagebox as msg
 import os
+from PIL import Image, ImageTk
 
 base = tk.Tk()
 string = tk.StringVar()
 
 dir=''
+iconimage=''
 print(dir)
 
 check='wget -o gitV https://raw.githubusercontent.com/PEANUT-Sh/make-desktop/main/v.txt'
 
 #初期設定
 
-base.geometry("500x500+700+300")
+base.geometry("600x400+700+300")
 
 
 def file():
@@ -39,12 +41,24 @@ def ok():
     print(name)
     print(dirname)
     print('start make.sh')
-    sb.run(['./make.sh', name, command, dirname])
+    sb.run(['./make.sh', name, command, dirname, iconimage])
     base.destroy()
+
+
+
+def selicon():
+    iconimage = fd.askopenfilename(
+        title='アイコンを選択',
+        initialdir= '~/',
+        filetypes=filet
+    )
+    print(iconimage)
 
 def about():
     sb.run(['python', './about.py'])
 base.title('デスクトップファイル生成')
+
+
 
 selectfile = tk.PhotoImage(file='image/file.png')
 small_img = selectfile.subsample(16, 16)
@@ -53,6 +67,8 @@ small_img = selectfile.subsample(16, 16)
 menubar = tk.Menu(base)
 menuhhelp = tk.Menu(menubar)
 henyu = tk.Menu(menubar)
+
+filet=[("画像","*.png")]
 
 menubar.add_cascade(label='オプション', menu=henyu)
 henyu.add_command(label='インターネットショートカット')
@@ -72,6 +88,7 @@ cmdbox = tk.Entry(base)
 filelabel = tk.Label(base, text='保存先')
 filepath = tk.Entry(base)
 selfile = tk.Button(base, image=small_img, command=file)
+icon = tk.Button(base, text='アイコンを選択', command=selicon)
 
 okbutton = tk.Button(base, text='次へ', command=ok)
 
@@ -80,16 +97,18 @@ okbutton = tk.Button(base, text='次へ', command=ok)
 
 base.config(menu=menubar)
 
-boxlabel.place(x=100, y=100, height=30)
-boxname.place(x=200, y=100, height=30)
+icon.place(x=50, y=60, height=100, width=100)
 
-cmdlabel.place(x=100, y=200, height=30)
-cmdbox.place(x=200, y=200, height=30)
+boxlabel.place(x=200, y=60, height=30)
+boxname.place(x=300, y=60, height=30)
 
-filelabel.place(x=100, y=300, height=30)
-filepath.place(x=200, y=300, width=200, height=30)
-selfile.place(x=400, y=300, height=30)
+cmdlabel.place(x=200, y=160, height=30)
+cmdbox.place(x=300, y=160, height=30)
 
-okbutton.place(x=7, y=5)
+filelabel.place(x=200, y=260, height=30)
+filepath.place(x=300, y=260, width=200, height=30)
+selfile.place(x=500, y=260, height=30)
+
+okbutton.place(x=500, y=360)
 
 base.mainloop()

@@ -33,7 +33,7 @@ Type=Application
 Path=/home/${USERNAME}/make-desktop/
 Exec=python3 /home/${USERNAME}/make-desktop/main.py
 StartupNotify=true
-Terminal=false
+Terminal=true
 Categories=Utility;
 Comment=デスクトップファイルを生成します
 "> /home/${USERNAME}/.local/share/applications/main.desktop

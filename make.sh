@@ -10,10 +10,12 @@ echo "make.sh"
 echo '$1 =' "$1"
 echo '$2 =' "$2"
 echo '$3 =' "$3"
+echo '$4 =' "$4"
 
 wd="$3"
 name="$1"
 cmd="$2"
+icon="$4"
 
 echo "$wd"
 
@@ -27,4 +29,5 @@ echo "[Desktop Entry]
 Name=${name}
 Exec=${cmd}
 Type=Application
+Icon=${icon}
 " > ./${name}.desktop
