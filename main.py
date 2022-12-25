@@ -20,7 +20,7 @@ check='wget -o gitV https://raw.githubusercontent.com/PEANUT-Sh/make-desktop/mai
 
 #初期設定
 
-base.geometry("600x400+700+300")
+base.geometry("500x460+700+300")
 
 
 def file():
@@ -36,10 +36,12 @@ def ok():
     command = cmdbox.get()
     name = boxname.get()
     dirname = filepath.get()
+    iconimage = iconpath.get()
     #確認のため出力
     print(command)
     print(name)
     print(dirname)
+    print(iconimage)
     print('start make.sh')
     sb.run(['./make.sh', name, command, dirname, iconimage])
     base.destroy()
@@ -49,10 +51,12 @@ def ok():
 def selicon():
     iconimage = fd.askopenfilename(
         title='アイコンを選択',
-        initialdir= '~/',
-        filetypes=filet
+        filetypes=filet,
+        initialdir = '~/'
     )
-    print(iconimage)
+    iconpath.delete(0, tk.END)
+    iconpath.insert(tk.END,iconimage)
+    print('icon => ' + iconimage)
 
 def about():
     sb.run(['python', './about.py'])
@@ -88,7 +92,10 @@ cmdbox = tk.Entry(base)
 filelabel = tk.Label(base, text='保存先')
 filepath = tk.Entry(base)
 selfile = tk.Button(base, image=small_img, command=file)
-icon = tk.Button(base, text='アイコンを選択', command=selicon)
+
+iconlabel = tk.Label(base, text='アイコンの場所')
+iconpath = tk.Entry(base)
+iconsel = tk.Button(base, image=small_img, command=selicon)
 
 okbutton = tk.Button(base, text='次へ', command=ok)
 
@@ -97,18 +104,21 @@ okbutton = tk.Button(base, text='次へ', command=ok)
 
 base.config(menu=menubar)
 
-icon.place(x=50, y=60, height=100, width=100)
 
-boxlabel.place(x=200, y=60, height=30)
-boxname.place(x=300, y=60, height=30)
+boxlabel.place(x=100, y=60, height=30)
+boxname.place(x=200, y=60, height=30)
 
-cmdlabel.place(x=200, y=160, height=30)
-cmdbox.place(x=300, y=160, height=30)
+cmdlabel.place(x=100, y=160, height=30)
+cmdbox.place(x=200, y=160, height=30)
 
-filelabel.place(x=200, y=260, height=30)
-filepath.place(x=300, y=260, width=200, height=30)
-selfile.place(x=500, y=260, height=30)
+filelabel.place(x=100, y=260, height=30)
+filepath.place(x=200, y=260, width=200, height=30)
+selfile.place(x=400, y=260, height=30)
 
-okbutton.place(x=500, y=360)
+iconlabel.place(x=100, y=360, height=30)
+iconpath.place(x=200, y=360, width=200, height=30)
+iconsel.place(x=400, y=360, height=30)
+
+okbutton.place(x=400, y=400)
 
 base.mainloop()
