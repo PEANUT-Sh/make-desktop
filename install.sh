@@ -20,7 +20,7 @@ Version=1.0
 Type=Application
 Name=デスクトップファイル生成くん
 Path=/home/${USERNAME}/make-desktop/
-Exec=python /home/${USERNAME}/make-desktop/main.py
+Exec=python3 /home/${USERNAME}/make-desktop/main.py
 StartupNotify=true
 Terminal=false
 "> /home/${USERNAME}/Desktop/main.desktop
@@ -30,7 +30,7 @@ echo "[Desktop Entry]
 Name=デスクトップファイル生成くん
 Type=Application
 Path=/home/${USERNAME}/make-desktop/
-Exec=python /home/${USERNAME}/make-desktop/main.py
+Exec=python3 /home/${USERNAME}/make-desktop/main.py
 StartupNotify=true
 Terminal=false
 Categories=Utility;
