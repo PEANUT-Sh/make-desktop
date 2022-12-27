@@ -27,6 +27,11 @@ dir=''
 iconimage=''
 print(dir)
 
+#バージョン取得
+local_v = open('virsion', 'r')
+v = local_v.read()
+print(v)
+
 check='wget -o gitV https://raw.githubusercontent.com/PEANUT-Sh/make-desktop/main/v.txt'
 
 #初期設定
@@ -34,12 +39,12 @@ check='wget -o gitV https://raw.githubusercontent.com/PEANUT-Sh/make-desktop/mai
 base.geometry("500x460+700+300")
 
 #aboutウインドウ
-
 def about():
     about = tk.Toplevel()
     about.title('情報')
     about.mainloop()
 
+#ファイルパス
 def file():
     dir = fd.askdirectory(
         title = '保存先',
