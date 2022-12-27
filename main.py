@@ -32,6 +32,8 @@ local_v = open('virsion', 'r')
 v = local_v.read()
 print(v)
 
+sb.run(['wget', 'https://github.com/PEANUT-Sh/make-desktop/raw/main/virsion%20on%20github'])
+
 check='wget -o gitV https://raw.githubusercontent.com/PEANUT-Sh/make-desktop/main/v.txt'
 
 #初期設定
