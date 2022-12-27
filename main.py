@@ -1,4 +1,15 @@
 #! /usr/bin/env /usr/bin/python
+print('######################################')
+print('#                                    #')
+print('#   #   #   #### #    #      ####    #')
+print('#   #   #   #    #    #     #    #   #')
+print('#   #####   ###  #    #     #    #   #')
+print('#   #   #   #    #    #     #    #   #')
+print('#   #   #   ###  #### ####   ####    #')
+print('#                                    #')
+print('######################################')
+print('')
+
 import tkinter as tk
 print('import tk')
 import tkinter.filedialog as fd
@@ -22,6 +33,12 @@ check='wget -o gitV https://raw.githubusercontent.com/PEANUT-Sh/make-desktop/mai
 
 base.geometry("500x460+700+300")
 
+#aboutウインドウ
+
+def about():
+    about = tk.Toplevel()
+    about.title('情報')
+    about.mainloop()
 
 def file():
     dir = fd.askdirectory(
@@ -58,7 +75,7 @@ def selicon():
     iconpath.insert(tk.END,iconimage)
     print('icon => ' + iconimage)
 
-def about():
+def help():
     sb.run(['chromium-browser', 'https://peanut-sh.github.io/about-my-project/'])
 base.title('デスクトップファイル生成')
 
@@ -80,6 +97,7 @@ henyu.add_command(label='インターネットショートカット(アプリ風
 
 menubar.add_cascade(label='ヘルプ', menu=menuhhelp)
 menuhhelp.add_command(label='about', command=about)
+menuhhelp.add_command(label='ヘルプ', command=help)
 
 title = tk.Label(base, text='make desktop')
 
