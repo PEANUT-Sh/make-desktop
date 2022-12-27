@@ -30,20 +30,43 @@ print(dir)
 #バージョン取得
 local_v = open('virsion', 'r')
 v = local_v.read()
-print(v)
 
-sb.run(['wget', 'https://github.com/PEANUT-Sh/make-desktop/raw/main/virsion%20on%20github'])
+
+sb.run(['wget', '-O', 'virsion on github', 'https://github.com/PEANUT-Sh/make-desktop/raw/main/virsion'])
+git_v = open('virsion on github', 'r')
+Gv = git_v.read()
+os.remove('virsion on github')
+print('Github上の最新バージョン' + Gv)
+print('Latest version on Github' + Gv)
+print('お使いのバージョン' + v)
+print('Version in use' + v)
+
+if (v == Gv):
+    print('お使いのバージョンは最新です')
+else:
+    print('あなたのバージョン' + v + 'は最新ではありません')
+    print(Gv + 'にアップデートできます')
 
 check='wget -o gitV https://raw.githubusercontent.com/PEANUT-Sh/make-desktop/main/v.txt'
 
 #初期設定
 
 base.geometry("500x460+700+300")
+vvv = 'バージョン' + v
 
 #aboutウインドウ
 def about():
     about = tk.Toplevel()
     about.title('情報')
+    about.geometry('400x400')
+    #aboutウインドウのパーツ
+    #
+    title = tk.Label(about, text='デスクトップファイル生成について')
+    about = tk.Label(about, text='デスクトップエントリを簡単に作成するためのソフトウェア。')
+    vv = tk.Label(about, text=vvv)
+    title.pack(anchor='center')
+    about.pack(anchor='center')
+    vv.pack(anchor='center')
     about.mainloop()
 
 #ファイルパス
