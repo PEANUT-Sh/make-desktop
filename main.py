@@ -19,6 +19,7 @@ print('import sb')
 import tkinter.messagebox as msg
 import os
 from PIL import Image, ImageTk
+import time
 
 base = tk.Tk()
 string = tk.StringVar()
@@ -26,6 +27,7 @@ string = tk.StringVar()
 dir=''
 iconimage=''
 print(dir)
+
 
 #バージョン取得
 local_v = open('virsion', 'r')
@@ -56,18 +58,8 @@ vvv = 'バージョン' + v
 
 #aboutウインドウ
 def about():
-    about = tk.Toplevel()
-    about.title('情報')
-    about.geometry('400x400')
-    #aboutウインドウのパーツ
-    #
-    title = tk.Label(about, text='デスクトップファイル生成について')
-    about = tk.Label(about, text='デスクトップエントリを簡単に作成するためのソフトウェア。')
-    vv = tk.Label(about, text=vvv)
-    title.pack(anchor='center')
-    about.pack(anchor='center')
-    vv.pack(anchor='center')
-    about.mainloop()
+    sb.run(['python3', './about.py'])
+
 
 #ファイルパス
 def file():
